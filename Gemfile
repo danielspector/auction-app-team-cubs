@@ -55,7 +55,7 @@ group :test, :development do
   gem "capybara"
   gem "selenium-webdriver"
   gem "terminal-notifier-guard"
-  # gem "factory_girl_rails"
+  gem "factory_girl_rails"
   gem "simplecov"
   gem "database_cleaner"
   gem "guard", ">=2.1.0"

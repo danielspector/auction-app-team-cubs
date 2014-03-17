@@ -65,6 +65,11 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     ffi (1.9.3)
     formatador (0.2.4)
     guard (2.3.0)
@@ -217,6 +222,7 @@ DEPENDENCIES
   chronic
   coffee-rails (~> 4.0.0)
   database_cleaner
+  factory_girl_rails
   guard (>= 2.1.0)
   guard-rspec
   jbuilder (~> 1.2)
