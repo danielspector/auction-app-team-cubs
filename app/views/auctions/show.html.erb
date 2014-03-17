@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @auction.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @auction.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @auction.price %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @auction.end_time %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @auction.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_auction_path(@auction) %> |
+<%= link_to 'Back', auctions_path %>
