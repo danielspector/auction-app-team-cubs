@@ -10,9 +10,9 @@ class Auction < ActiveRecord::Base
     self.price = price/100.00
   end
 
-  def not_ended?
-    if self.end_time && (self.end_time >= Chronic.parse("March 17, 2014"))
-      errors.add(:end_time, "Can't be in the past")
-    end
-  end
+  # def not_ended?
+  #   if self.end_time && (self.end_time >= Chronic.parse("March 17, 2014"))
+  #     errors.add(:end_time, "Can't be in the past")
+  #   end
+  # end
 end

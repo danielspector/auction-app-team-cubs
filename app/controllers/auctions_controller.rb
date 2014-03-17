@@ -39,26 +39,20 @@ class AuctionsController < ApplicationController
   end
 
   # PATCH/PUT /auctions/1
-  # PATCH/PUT /auctions/1.json
   def update
-    respond_to do |format|
-      if @auction.update(auction_params)
-        format.html { redirect_to @auction, notice: 'Auction was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @auction.errors, status: :unprocessable_entity }
-      end
+    if @auction.end_time > Time.now
+      @auction.update(auction_params)
+      redirect_to @auction, notice: 'Auction was successfully updated.'
+    else
+      render action: 'edit', notice: "The auction has already ended"
     end
   end
 
-  # DELETE /auctions/1
-  # DELETE /auctions/1.json
   def destroy
-    @auction.destroy
-    respond_to do |format|
-      format.html { redirect_to auctions_url }
-      format.json { head :no_content }
+    if @auction.destroy
+      redirect_to auctions_path
+    else
+      render :edit
     end
   end
 
