@@ -21,7 +21,7 @@
         <td><%= auction.description %></td>
         <td><%= auction.price %></td>
         <td><%= auction.end_time %></td>
-        <td><%= auction.user_id %></td>
+        <td><%= auction.seller_id %></td>
         <td><%= link_to 'Show', auction %></td>
         <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
         <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>

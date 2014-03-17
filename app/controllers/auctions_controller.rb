@@ -24,6 +24,7 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
+    params[:auction][:price] = (params[:auction][:price].to_f*100).to_i
     @auction = Auction.new(auction_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class AuctionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
-      params.require(:auction).permit(:title, :description, :price, :end_time, :user_id)
+      params.require(:auction).permit(:title, :description, :price, :end_time, :seller_id)
     end
 end

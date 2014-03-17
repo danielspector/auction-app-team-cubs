@@ -21,9 +21,30 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @auction.user_id %>
+  <strong>Seller:</strong>
+  <%= @auction.seller.name.capitalize %>
+</p>
+
+<p>
+  <strong>Highest Bid:</strong>
+  <%= @auction.bids.last.amount_in_dollars if @auction.bids.last %>
+</p>
+
+<p>
+  <strong>Bidder with Highest Bid:</strong>
+  <%= @auction.bids.last.bidder.name.capitalize if @auction.bids.last %>
 </p>
 
 <%= link_to 'Edit', edit_auction_path(@auction) %> |
 <%= link_to 'Back', auctions_path %>
+
+<%= form_tag("/auctions/#{@auction.id}/bids", method: "post") do %>
+<%= label_tag :amount %>
+<%= text_field_tag :amount %>
+
+<%= label_tag :bidder_id %>
+<%= text_field_tag :bidder_id %>
+
+<%= submit_tag "Enter Your Bid!" %>
+
+<% end %>

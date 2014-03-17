@@ -1,19 +1,19 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/models/user.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/models/auction.rb": [
         1,
         1,
         1,
         null
       ],
-      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/models/auction.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/models/user.rb": [
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1395091607
+    "timestamp": 1395091658
   }
 }

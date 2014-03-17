@@ -1,5 +1,8 @@
 AuctionApp::Application.routes.draw do
-  resources :auctions
+  resources :auctions do
+    resources :bids
+  end
+  root "auctions#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
