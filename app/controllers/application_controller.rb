@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  helper_method :current_user
+
   def login(user)
     session[:user_id] = user.id
   end 
@@ -26,6 +28,14 @@ class ApplicationController < ActionController::Base
     reset_session
   end 
 
-  helper_method :current_user
-  
+  def authorized_to_bid?(seller) 
+    current_user != seller
+  end
+  helper_method :authorized_to_bid?
+
+  def authorized_to_edit?(seller)
+    current_user == seller
+  end 
+  helper_method :authorized_to_edit?
+
 end
