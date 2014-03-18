@@ -46,14 +46,18 @@
 
   <p>
     <strong>Time Left?:</strong>
-    <%= time_ago_in_words(@auction.end_time) if @auction.end_time %> left
+    <% if !auction_active?(@auction) %>
+    The auction has ended
+    <% else %>
+    <%= distance_of_time_in_words(Time.now, @auction.end_time) if @auction.end_time %> left
+    <% end %>
   </p>
 
-  <% if authorized_to_edit?(@auction.seller) %>
+  <% if authorized_to_edit?(@auction.seller) && auction_active?(@auction) %>
     
     <%= link_to 'Edit', edit_auction_path(@auction), class:"btn btn-warning" %>
 
-    <%= link_to 'End Auction Early', end_auction_path %>
+    <%= link_to 'End Auction Early', end_auction_path, class:"btn btn-warning" %>
   <% end %> 
     <%= link_to 'Back', auctions_path, class:"btn btn-info" %>
 
