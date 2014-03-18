@@ -5,6 +5,8 @@ AuctionApp::Application.routes.draw do
   end
   resources :bids
   root "auctions#index"
+  get "/sessions/new" => "sessions#new", as: :login
+  post "/sessions" => "sessions#create", as: :new_login
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
