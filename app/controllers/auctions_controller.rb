@@ -40,6 +40,7 @@ class AuctionsController < ApplicationController
 
   # PATCH/PUT /auctions/1
   def update
+    #Refactor this crap. Find a way to put this in the model.
     if @auction.end_time > Time.now
       @auction.update(auction_params)
       redirect_to @auction, notice: 'Auction was successfully updated.'
