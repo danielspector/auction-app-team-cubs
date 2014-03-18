@@ -2,7 +2,7 @@ class BidsController < ApplicationController
   def create
     @auction = Auction.find(params[:auction_id])
     @bid = @auction.bids.build(amount: params[:amount], bidder_id: params[:bidder_id])
-    binding.pry
+    # binding.pry
     if @auction.bids.length == 0
       @bid.save
       redirect_to auction_path(@auction)
