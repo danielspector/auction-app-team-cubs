@@ -1,50 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
 
-<p>
-  <strong>Title:</strong>
-  <%= @auction.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @auction.description %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @auction.title %>
+  </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @auction.price %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @auction.description %>
+  </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @auction.end_time %>
-</p>
+  <p>
+    <strong>Price:</strong>
+    <%= @auction.price %>
+  </p>
 
-<p>
-  <strong>Seller:</strong>
-  <%= @auction.seller.name.capitalize %>
-</p>
+  <p>
+    <strong>End time:</strong>
+    <%= @auction.end_time %>
+  </p>
 
-<p>
-  <strong>Highest Bid:</strong>
-  <%= @auction.bids.last.amount_in_dollars if @auction.bids.last %>
-</p>
+  <p>
+    <strong>Seller:</strong>
+    <%= @auction.seller.name.capitalize %>
+  </p>
 
-<p>
-  <strong>Bidder with Highest Bid:</strong>
-  <%= @auction.bids.last.bidder.name.capitalize if @auction.bids.last %>
-</p>
+  <p>
+    <strong>Highest Bid:</strong>
+    <%= @auction.bids.last.amount_in_dollars if @auction.bids.last %>
+  </p>
 
-<%= link_to 'Edit', edit_auction_path(@auction) %> |
-<%= link_to 'Back', auctions_path %>
+  <p>
+    <strong>Bidder with Highest Bid:</strong>
+    <%= @auction.bids.last.bidder.name.capitalize if @auction.bids.last %>
+  </p>
 
-<%= form_tag("/auctions/#{@auction.id}/bids", method: "post") do %>
-<%= label_tag :amount %>
-<%= text_field_tag :amount %>
+  <%= link_to 'Edit', edit_auction_path(@auction), class:"btn btn-warning" %> 
+  <%= link_to 'Back', auctions_path, class:"btn btn-info" %>
+
+</div> <!-- Ends jumbotron -->
+
+<%= form_tag("/auctions/#{@auction.id}/bids", method: "post", role: "form") do %>
+<!-- <div class="form-group"> -->
+  <%= label_tag :amount %>
+  <%= text_field_tag :amount, "" %>
+<!-- </div> -->
 
 <%#= label_tag :bidder_id %>
 <%#= text_field_tag :bidder_id %>
 
-<%= submit_tag "Enter Your Bid!" %>
+<%= submit_tag "Enter Your Bid!", class: "btn btn-info btn-lg" %>
 
 <% end %>

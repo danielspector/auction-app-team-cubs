@@ -1,6 +1,6 @@
 <h1>Listing auctions</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Title</th>
@@ -22,9 +22,9 @@
         <td><%= auction.price %></td>
         <td><%= auction.end_time %></td>
         <td><%= auction.seller_id %></td>
-        <td><%= link_to 'Show', auction %></td>
-        <td><%= link_to 'Edit', edit_auction_path(auction) %></td>
-        <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', auction, class: "btn btn-primary" %></td>
+        <td><%= link_to 'Edit', edit_auction_path(auction), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', auction, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Auction', new_auction_path %>
+<%= link_to 'New Auction', new_auction_path, class: "btn btn-primary" %>

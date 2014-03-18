@@ -1,9 +1,36 @@
 
-<% if logged_in? %>
-  You're logged in as <%= current_user.name %>
+<nav class="navbar navbar.inverse navbar-default" role="navigation">
+  <ul class="nav nav-pills">
+    <li>
+      <%= link_to "HOME", root_path, class: "btn btn-primary" %>
+    </li>
+  
+    <ul class="nav nav-pills pull-right">
+      <% if logged_in? %>
+        <li id="logged_in_as">
+          You're logged in as <%= current_user.name %>
+        </li>
+        <li>
+          <%= link_to "LOGOUT", logout_path, class: "btn btn-danger" %>
+        </li>
+      <% else %>
+        <%= link_to "LOGIN", login_path %>
+        <%= link_to "SIGN UP", users_new_path %>
+      <% end %>
+    </ul>
+  </ul>
+</nav>
 
-  <%= link_to "LOGOUT", logout_path %>
-<% else %>
-  <%= link_to "LOGIN", login_path %>
-  <%= link_to "SIGN UP", users_new_path %>
-<% end %>
+
+<!-- <div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+      <a class="blog-nav-item active" href="#">Home</a>
+      <a class="blog-nav-item" href="#">New features</a>
+      <a class="blog-nav-item" href="#">Press</a>
+      <a class="blog-nav-item" href="#">New hires</a>
+      <a class="blog-nav-item" href="#">About</a>
+    </nav>
+  </div>
+</div>
+ -->
