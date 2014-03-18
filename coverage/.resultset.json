@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/controllers/auctions_controller.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/controllers/auctions_controller.rb": [
         1,
         1,
         1,
@@ -78,7 +78,7 @@
         null,
         null
       ],
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/controllers/application_controller.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/controllers/application_controller.rb": [
         1,
         null,
         null,
@@ -96,8 +96,10 @@
         1,
         null,
         1,
-        15,
+        19,
         null,
+        null,
+        1,
         null,
         1,
         0,
@@ -106,12 +108,20 @@
         1,
         0,
         null,
+        null,
+        1,
+        2,
+        null,
+        1,
+        null,
+        1,
+        2,
         null,
         1,
         null,
         null
       ],
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/controllers/bids_controller.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/controllers/bids_controller.rb": [
         1,
         1,
         null,
@@ -145,7 +155,7 @@
         null,
         null
       ],
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/controllers/sessions_controller.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
@@ -165,7 +175,7 @@
         null,
         null
       ],
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/controllers/users_controller.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/controllers/users_controller.rb": [
         1,
         1,
         0,
@@ -188,7 +198,7 @@
         null,
         null
       ],
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/models/auction.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/models/auction.rb": [
         1,
         null,
         1,
@@ -212,7 +222,7 @@
         null,
         null
       ],
-      "/Users/samschlinkert/Documents/code/flatiron/labs/week7/auction-app-team-cubs/app/models/user.rb": [
+      "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/models/user.rb": [
         1,
         1,
         1,
@@ -220,6 +230,6 @@
         null
       ]
     },
-    "timestamp": 1395159063
+    "timestamp": 1395170150
   }
 }
