@@ -38,4 +38,13 @@ class ApplicationController < ActionController::Base
   end 
   helper_method :authorized_to_edit?
 
+  def auction_active?(auction)
+    auction.end_time > Time.now if auction.end_time 
+  end 
+  helper_method :auction_active?
+
+  def time_left(auction)
+    Time.now - auction.end_time
+  end 
+  helper_method :time_left
 end

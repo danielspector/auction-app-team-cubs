@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
   before_action :login_required, :only => [:create, :new, :edit, :update, :destroy]
-  before_action :set_auction, only: [:show, :edit, :update, :destroy]
+  before_action :set_auction, only: [:show, :edit, :update, :destroy, :end_auction]
 
 
   # GET /auctions
@@ -48,7 +48,7 @@ class AuctionsController < ApplicationController
     #Refactor this crap. Find a way to put this in the model.
     if @auction.end_time > Time.now
       @auction.update(auction_params)
-      redirect_to @auction, notice: 'Auction was successfully updated.'
+      redirect_to @auction, notice: 'Auction successfully updated.'
     else
       render action: 'edit', notice: "The auction has already ended"
     end
@@ -61,6 +61,13 @@ class AuctionsController < ApplicationController
       render :edit
     end
   end
+
+  def end_auction
+    @auction.end_time = 10.minutes.ago
+    @auction.save
+
+    redirect_to auction_path(@auction) 
+  end 
 
   private
     # Use callbacks to share common setup or constraints between actions.

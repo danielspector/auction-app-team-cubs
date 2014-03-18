@@ -13,6 +13,8 @@ AuctionApp::Application.routes.draw do
   get '/users/new' => "users#new"
   post '/users' => "users#create", as: :users
 
+  get '/auctions/:id/end_early' => "auctions#end_auction", as: :end_auction
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

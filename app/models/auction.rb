@@ -3,6 +3,9 @@ class Auction < ActiveRecord::Base
   has_many :bids, dependent: :destroy
   belongs_to :seller, class_name: "User"
   validates_uniqueness_of :title
+
+  validates_presence_of :end_time
+
   # validate :not_ended?
   # validates_date :end_time, :on_or_before => lambda { Time.now }
   
