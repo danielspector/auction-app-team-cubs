@@ -1,0 +1,8 @@
+
+<% if logged_in? %>
+  You're logged in as <%= current_user.name %>
+
+  <%= link_to "LOGOUT", logout_path %>
+<% else %>
+  <%= link_to "LOGIN", login_path %>
+<% end %>

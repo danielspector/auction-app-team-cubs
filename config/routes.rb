@@ -8,6 +8,9 @@ AuctionApp::Application.routes.draw do
   get "/sessions/new" => "sessions#new", as: :login
   post "/sessions" => "sessions#create", as: :new_login
 
+  get "/sessions/delete" => "sessions#destroy", as: :logout
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

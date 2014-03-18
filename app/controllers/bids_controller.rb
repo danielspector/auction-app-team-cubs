@@ -1,14 +1,16 @@
 class BidsController < ApplicationController
+  before_action :login_required, :only => [:create, :new]
+
   def create
     @auction = Auction.find(params[:auction_id])
-    @bid = @auction.bids.build(amount: params[:amount], bidder_id: params[:bidder_id])
+    @bid = @auction.bids.build(amount: params[:amount], bidder_id: session[:user_id])
 
-    if @auction.bids.length == 0
-      @bid.save
-      redirect_to auction_path(@auction)
-    end
+    # if @auction.bids.length == 0
+    #   @bid.save
+    #   redirect_to auction_path(@auction)
+    # end
 
-    if params[:amount].to_i > @auction.highest_bid.amount_in_dollars
+    if @auction.bids.length == 1 || (params[:amount].to_i > @auction.highest_bid.amount_in_dollars)
 
       if @bid.save
         redirect_to auction_path(@auction)

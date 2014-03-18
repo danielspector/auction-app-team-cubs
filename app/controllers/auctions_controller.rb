@@ -1,5 +1,7 @@
 class AuctionsController < ApplicationController
+  before_action :login_required, :only => [:create, :new, :edit, :update, :destroy]
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
+
 
   # GET /auctions
   # GET /auctions.json
@@ -25,7 +27,10 @@ class AuctionsController < ApplicationController
   # POST /auctions.json
   def create
     params[:auction][:price] = (params[:auction][:price].to_f*100).to_i
+
     @auction = Auction.new(auction_params)
+
+    @auction.seller_id = session[:user_id]
 
     respond_to do |format|
       if @auction.save
@@ -65,6 +70,6 @@ class AuctionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auction_params
-      params.require(:auction).permit(:title, :description, :price, :end_time, :seller_id)
+      params.require(:auction).permit(:title, :description, :price, :end_time)
     end
 end
