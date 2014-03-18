@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
-  helper_method :login_required
-
   def logged_in?
     !!session[:user_id]
   end
