@@ -2,7 +2,6 @@ class BidsController < ApplicationController
   def create
     @auction = Auction.find(params[:auction_id])
     @bid = @auction.bids.build(amount: params[:amount], bidder_id: params[:bidder_id])
-    # binding.pry
     if params[:amount].to_i > @auction.highest_bid.amount_in_dollars
       if @bid.save
         redirect_to auction_path(@auction)
@@ -10,7 +9,7 @@ class BidsController < ApplicationController
         render auction_path(@auction)
       end
     else
-      render new_bid_path
+      redirect_to "/auctions/#{@auction.id}"
     end
   end
 
