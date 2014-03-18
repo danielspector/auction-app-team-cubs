@@ -9,6 +9,6 @@ class Bid < ActiveRecord::Base
   end
 
   def store_in_cents
-    self.amount = amount*100
+    self.amount = amount * 100 if self.amount
   end
 end

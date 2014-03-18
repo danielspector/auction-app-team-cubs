@@ -82,14 +82,31 @@
       "/Users/danielspector/projects/flatiron_school/week7/day31/auction-app/app/controllers/bids_controller.rb": [
         1,
         1,
+        4,
+        4,
+        4,
+        4,
         0,
         0,
+        null,
+        null,
+        4,
         0,
         0,
         null,
         0,
         null,
         null,
+        4,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
         null,
         null
       ],
@@ -120,6 +137,10 @@
         0,
         null,
         null,
+        1,
+        4,
+        null,
+        null,
         null,
         null,
         null,
@@ -128,6 +149,6 @@
         null
       ]
     },
-    "timestamp": 1395098616
+    "timestamp": 1395102215
   }
 }

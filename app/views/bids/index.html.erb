@@ -1,0 +1,5 @@
+<ul>
+  <% @bids.each do |bid| %>
+  <li><%= bid.bidder.name %> - <%= bid.amount %></li>
+  <% end %>
+</ul>

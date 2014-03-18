@@ -1,4 +1,5 @@
 AuctionApp::Application.routes.draw do
+  resources :bids
   resources :auctions do
     resources :bids
   end

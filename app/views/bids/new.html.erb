@@ -1,0 +1,11 @@
+<form action="/bids" method="post">
+<%= token_tag %>
+<label>Select an auction<select name="auction_id">
+  <% @auctions.each do |auction| %>
+  <option value="<%= auction.id %>"><%= auction.title %></option>
+  <% end %>
+</select></label>
+<label>Amount<input type="text" name="amount"></label>
+<label>Bidder<input type="text" name="bidder_id"></label>
+<input type="submit">
+</form>
