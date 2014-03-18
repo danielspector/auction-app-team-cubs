@@ -21,30 +21,45 @@
     <strong>End time:</strong>
     <%= @auction.end_time %>
   </p>
+  
+  <% if !auction_active?(@auction) %>
+    <p>
+      <strong>Auction has ended</strong>
+    </p>
+  <% end %>
+    
 
   <p>
     <strong>Seller:</strong>
-    <%= @auction.seller.name.capitalize %>
+    <%= @auction.seller.name.titleize if @auction.seller %>
   </p>
 
   <p>
     <strong>Highest Bid:</strong>
-    <%= @auction.bids.last.amount_in_dollars if @auction.bids.last %>
+    <%= number_to_currency(@auction.bids.last.amount_in_dollars) if @auction.bids.last %>
   </p>
 
   <p>
     <strong>Bidder with Highest Bid:</strong>
-    <%= @auction.bids.last.bidder.name.capitalize if @auction.bids.last %>
+    <%= @auction.bids.last.bidder.name.titleize if @auction.bids.last %>
+  </p>
+
+  <p>
+    <strong>Time Left?:</strong>
+    <%= time_ago_in_words(@auction.end_time) if @auction.end_time %> left
   </p>
 
   <% if authorized_to_edit?(@auction.seller) %>
+    
     <%= link_to 'Edit', edit_auction_path(@auction), class:"btn btn-warning" %>
+
+    <%= link_to 'End Auction Early', end_auction_path %>
   <% end %> 
     <%= link_to 'Back', auctions_path, class:"btn btn-info" %>
 
 </div> <!-- Ends jumbotron -->
 
-<% if authorized_to_bid?(@auction.seller) %>
+<% if authorized_to_bid?(@auction.seller) || !auction_active?(@auction) %>
   <%= form_tag("/auctions/#{@auction.id}/bids", method: "post", role: "form") do %>
   <!-- <div class="form-group"> -->
     <%= label_tag :amount %>

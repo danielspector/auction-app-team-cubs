@@ -1,6 +1,9 @@
 <h1>Editing auction</h1>
 
-<%= render 'form' %>
-
+<% if auction_active?(@auction) %>
+  <%= render 'form' %>
+<% else %>
+  <p>Auction has ended</p>
+<% end %>
 <%= link_to 'Show', @auction %> |
 <%= link_to 'Back', auctions_path %>
