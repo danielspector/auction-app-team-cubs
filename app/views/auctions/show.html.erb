@@ -59,7 +59,7 @@
 
 </div> <!-- Ends jumbotron -->
 
-<% if authorized_to_bid?(@auction.seller) || !auction_active?(@auction) %>
+<% if authorized_to_bid?(@auction.seller) && auction_active?(@auction) %>
   <%= form_tag("/auctions/#{@auction.id}/bids", method: "post", role: "form") do %>
   <!-- <div class="form-group"> -->
     <%= label_tag :amount %>
