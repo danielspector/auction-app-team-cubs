@@ -4,15 +4,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:name])
-    if user
-      session[:user_id] = user.id
-      redirect_to "/"
+    user = User.find_by(name: params[:user][:name])
+    if user.authenticate(params[:user][:password])
+      login(user)
+      redirect_to auctions_path
+    else
+      render :new
     end
   end
 
   def destroy 
     logout 
-    redirect_to '/'
+    redirect_to root_path
+  end
+
+  def authenticated?(user)
+    user.password == params[:user][:password]
   end 
 end

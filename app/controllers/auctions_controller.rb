@@ -45,20 +45,28 @@ class AuctionsController < ApplicationController
 
   # PATCH/PUT /auctions/1
   def update
-    #Refactor this crap. Find a way to put this in the model.
-    if @auction.end_time > Time.now
-      @auction.update(auction_params)
-      redirect_to @auction, notice: 'Auction successfully updated.'
+    #Refactor this crap. Find a way to put this in the model. 
+    if authorized_to_edit?(@auction.seller)
+      if @auction.end_time > Time.now
+        @auction.update(auction_params)
+        redirect_to @auction, notice: 'Auction successfully updated.'
+      else
+        render action: 'edit', notice: "The auction has already ended"
+      end
     else
-      render action: 'edit', notice: "The auction has already ended"
+      redirect_to login_path
     end
   end
 
   def destroy
-    if @auction.destroy
-      redirect_to auctions_path
+    if authorized_to_edit?(@auction.seller)
+      if @auction.destroy
+        redirect_to auctions_path
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to login_path
     end
   end
 

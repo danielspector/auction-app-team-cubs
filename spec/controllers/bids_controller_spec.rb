@@ -16,8 +16,8 @@ describe 'Part 1 BidsController Specs', :part_1_specs => true do
       let!(:bid) { build(:low_bid) }
 
       before(:each) do
-        User.create(id: auction.seller_id, name: 'user_1')
-        User.create(id: auction.seller_id + 1, name: 'user_2')
+        User.create(name: 'user_1')
+        User.create(name: 'user_2')
         use_user_id(auction.seller_id + 1)
       end
 
