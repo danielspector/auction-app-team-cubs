@@ -41,7 +41,9 @@
 
   <p>
     <strong>Bidder with Highest Bid:</strong>
-    <%= @auction.bids.last.bidder.name.titleize if @auction.bids.last %>
+    <% if @auction.bids.max && @auction.bids.max.bidder %>
+    <%= @auction.bids.max.bidder.name.titleize  %>
+    <% end %>
   </p>
 
   <p>

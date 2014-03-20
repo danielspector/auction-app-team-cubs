@@ -6,5 +6,6 @@
 <% else %>
   <p>Auction has ended</p>
 <% end %>
+   <%= link_to 'Delete Auction', @auction, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 <%= link_to 'Show', @auction %> |
 <%= link_to 'Back', auctions_path %>

@@ -4,6 +4,8 @@ class Bid < ActiveRecord::Base
   belongs_to :auction
   belongs_to :bidder, class_name: "User"
 
+  validates_numericality_of :amount
+
   def amount_in_dollars
     self.amount = amount/100.00
   end
@@ -11,4 +13,5 @@ class Bid < ActiveRecord::Base
   def store_in_cents
     self.amount = amount * 100 if self.amount
   end
+
 end

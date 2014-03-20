@@ -61,6 +61,7 @@ class AuctionsController < ApplicationController
   def destroy
     if authorized_to_edit?(@auction.seller)
       if @auction.destroy
+        flash[:notice] = 'Successfully deleted auction.'
         redirect_to auctions_path
       else
         render :edit

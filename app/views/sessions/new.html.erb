@@ -1,8 +1,9 @@
+<h1>Log In</h1>
 <%= form_tag(new_login_path, method: :post) do %>
-<%= label_tag :name, "user[name]" %>
+<%= label_tag "user[name]", :name %>
 <%= text_field_tag "user[name]" %>
 
-<%= label_tag :password, "user[password]" %>
+<%= label_tag "user[password]", :password %>
 <%= text_field_tag "user[password]" %>
 <%= submit_tag "Login" %>
 <% end %>
