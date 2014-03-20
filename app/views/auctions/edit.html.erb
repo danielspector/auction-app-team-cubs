@@ -2,6 +2,7 @@
 
 <% if auction_active?(@auction) %>
   <%= render 'form' %>
+   <%= link_to 'End Auction Early', end_auction_path, class:"btn btn-warning" %>
 <% else %>
   <p>Auction has ended</p>
 <% end %>

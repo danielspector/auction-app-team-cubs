@@ -73,8 +73,8 @@ class AuctionsController < ApplicationController
   def end_auction
     @auction.end_time = 10.minutes.ago
     @auction.save
-
-    redirect_to auction_path(@auction) 
+    flash[:notice] = "Successfully ended auction early."
+    redirect_to auctions_path
   end 
 
   private
